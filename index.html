@@ -1,53 +1,28 @@
-html
 <!DOCTYPE html>
 <html>
 <head>
-  <title>����������� ��������</title>
-  <style>
-    canvas {
-      border: 1px solid black;
-    }
-  </style>
-  <script>
-    window.onload = function() {
-      var canvas = document.getElementById("canvas");
-      var ctx = canvas.getContext("2d");
-      var drawing = false;
-
-      canvas.addEventListener("mousedown", function(e) {
-        drawing = true;
-        ctx.lineWidth = document.getElementById("penWidth").value;
-        ctx.strokeStyle = document.getElementById("penColor").value;
-        ctx.beginPath();
-        ctx.moveTo(e.pageX - canvas.offsetLeft, e.pageY - canvas.offsetTop);
-      });
-
-      canvas.addEventListener("mousemove", function(e) {
-        if (drawing) {
-          ctx.lineTo(e.pageX - canvas.offsetLeft, e.pageY - canvas.offsetTop);
-          ctx.stroke();
-        }
-      });
-
-      canvas.addEventListener("mouseup", function(e) {
-        if (drawing) {
-          drawing = false;
-          ctx.lineTo(e.pageX - canvas.offsetLeft, e.pageY - canvas.offsetTop);
-          ctx.stroke();
-          ctx.closePath();
-        }
-      });
-    }
-  </script>
+  <title>Простой сайт</title>
 </head>
 <body>
-  <h1>����������� ��������</h1>
-  <canvas id="canvas" width="800" height="600"></canvas>
-  <br>
-  <label for="penWidth">������� ����:</label>
-  <input type="range" id="penWidth" min="1" max="10" value="1">
-  <br>
-  <label for="penColor">���� ����:</label>
-  <input type="color" id="penColor" value="#000000">
+  <header>
+    <h1>Привет, мир!</h1>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="#">Главная</a></li>
+      <li><a href="#">О нас</a></li>
+      <li><a href="#">Контакты</a></li>
+    </ul>
+  </nav>
+  
+  <section>
+    <h2>О нас</h2>
+    <p>Мы компания, занимающаяся разработкой программного обеспечения.</p>
+  </section>
+  
+  <footer>
+    <p>© 2021 Простой сайт. Все права защищены.</p>
+  </footer>
 </body>
 </html>
